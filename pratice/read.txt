@@ -1,0 +1,115 @@
+1. what is MONGO-DB ?
+
+=> MongoDB is a non-relational document database that provides support for 
+   JSON-like storage
+
+=> The MongoDB database has a flexible data model that enables you to store 
+   unstructured data, and it provides full indexing support, and replication 
+   with rich and intuitive APIs.
+
+=> an open source NoSQL database management program
+
+=> NoSQL is used as an alternative to traditional relational databases. NoSQL 
+   databases are quite useful for working with large sets of distributed data. 
+   MongoDB is a tool that can manage document-oriented information, store or 
+   retrieve information.
+
+=> MongoDB store data in form of documents.
+=> MongoDB uses BSON(just like JSON) to query databases
+
+2. difference between SQL and NoSQL ?
+
+=> SQL database are in structure() while NoSQL have no structure 
+=> SQL have pre-defined schema while NoSQL have dynamic schema (we need to create)
+=> SQL better for multi-row trascations while NoSQL better for unstructured data
+   like document or JSON.
+
+3. difference between JSON an BSON ?
+
+=> BSON is faster, can cosumed more space, lighweight.
+otheside JSON used to tranmission data(API fetch) but,
+BSON is used storage the data. 
+
+=> Binary vs. text: BSON is a binary-encoded format, whereas JSON is a text-based format. 
+This means that BSON is compact for transmitting over a network, while JSON is 
+human-readable and easier to work with in various contexts.
+
+what is express.json() and express.urlencoded({extended : false}) ?
+
+When talking about express.json() and express.urlencoded() think specifically about POST 
+requests (i.e. the .post request object) and PUT Requests (i.e. the .put request object)
+
+# express.json()
+
+express.json() it will parse the body from post/fetch request except from html
+post form. It wont parse information from the html post form :
+
+<form action="/" method="POST">
+    <input type="text" name="username">
+    <button>Submit</button>
+</form>
+
+but it will not gonna parse when we Submit this form
+
+parse means => resolve (a sentence) into its component parts and describe their syntactic roles.
+
+For instance, if you fill the form with "Manan" then submit it, Express wont have an idea 
+what inside the body with this express code:
+
+will send {} after you click submit. But if you uncommented 
+app.use(express.urlencoded({extended: false})), then you will get {"username": "Manan"}.
+
+So the difference is express.json() is a body parser for post request except html post form
+and express.urlencoded({extended: false}) is a body parser for html post form.
+
+HOW TO CONNNECT REST API TO SERVER?
+
+Step #1 – Enter the URL of the API in the textbox of the tool. 
+Step #2 – Select the HTTP method used for this API (GET, POST, PATCH, etc). 
+Step #3 – Enter any headers if they are required in the Headers textbox. 
+Step #4 – Pass the request body of the API in a key-value pair.
+
+
+page 1 :
+
+GET /get-location-list 
+GET /get-restaurant-list-by-location-id
+GET /get-mealtype
+login/sign-up   <== do it by your own
+
+page 2 :
+
+POST /filter
+=> here filter is something dynamic , it will show result as per the user requirment
+
+
+page 3 :
+
+GET /get-restaurant-detail-by-restaurant-id
+GET /menu-items-by-restaurant-id
+POST/ payment 
+      POST/ save order
+
+
+#locationController
+GET /get-location-list 
+
+#restaurantController
+GET /get-restaurant-list-by-location-id
+POST /filter
+GET /get-restaurant-detail-by-restaurant-id
+GET /menu-items-by-restaurant-id
+
+#mealtypeController
+GET /get-mealtype
+
+#paymentController
+POST/ payment 
+      POST/ save order
+
+
+----------------------------------------------------------------------------------------
+# meaning of driver : A driver, or device driver, is a set of files that tells a piece of 
+                      hardware how to function by communicating with a computer's operating
+                      system. 
+

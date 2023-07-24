@@ -1,0 +1,162 @@
+1. What is MongoDB ?
+
+=> MongoDB is a non-relational document database that provides support for 
+   JSON-like storage
+=> MongoDB works on the concept of Collection and Document.
+=> The MongoDB database has a flexible data model that enables you to store 
+   unstructured data
+=> an open source NoSQL database management program
+=> NoSQL is used as an alternative to traditional relational databases. NoSQL 
+   databases are quite useful for working with large sets of distributed data. 
+   MongoDB is a tool that can manage document-oriented information, store or 
+   retrieve information
+=> It provides easy scalability and is a cross-platform, document-oriented database.
+=> MongoDB store data in form of documents.
+=> MongoDB uses BSON(just like JSON) to query databases
+
+# non -relational database means ?
+
+=> A non-relational database is a database that does not use the schema of rows and 
+   columns found in most traditional database systems.
+
+2. difference between SQL and NoSQL ?
+
+=> SQL database are in structure() while NoSQL have no structure 
+=> SQL have pre-defined schema while NoSQL have dynamic schema (we need to create)
+=> SQL better for multi-row trascations while NoSQL better for unstructured data
+   like document or JSON.
+
+3. difference between JSON an BSON ?
+
+=> BSON is faster, can cosumed more space, lighweight.
+otheside JSON used to tranmission data(API fetch) but,
+BSON is used storage the data. 
+
+=> JSON VS BSON 
+
+=> JSON and Bson both stand for JavaScript Object Notation but there are some differences
+   between them 
+=> mongoDB does not use json but it's actually use BSON 
+=> BSON stand for binary JSON for storing and retrieve the data in database
+=> bson code look like json code. when we retrieve the data from mongoDB it we get json data
+=> but behind the scene mongoDB actually uses BSON data
+   this conversion is done by MongoDB driver
+   that basically take your json code and store it in binary data
+  # cause it more efficient to store than json data, so its faster 
+  # more efficient from space , size 
+  # and also more importantly its support addication Type 
+    For Example: 
+    ObjectId that we use in data to store in mongoDB that ObjectId is not valid in normal 
+    JSON. 
+    but MongoDB can actually understand and take this and store in binary data
+    there so many addication datatype we get in BSON like decimal , very big number, Date 
+    and this are stored in different ways store behind scene by mongoDB.
+
+=> one thing that need to know that when we add data means document in mongoDB database 
+   we do not need to write "name" : "manan" , for storing data , we can avoid the 
+   double  quote "" in keyName means  { name : "manan"} => this still accepted in json
+
+=> we can store unstructured data in mongoDB as it is NoSQL database
+=> but we can create dynamic schema in mongoDB
+
+
+=> Binary vs. text: BSON is a binary-encoded format, whereas JSON is a text-based format. 
+This means that BSON is compact for transmitting over a network, while JSON is 
+human-readable and easier to work with in various contexts. json is used in API 
+
+
+4. What are some of the advantages of MongoDB?
+
+=> Full cloud-based developer data platform 
+=> Flexible document schemas
+=> Change-friendly design
+=> Powerful querying and analytics
+=> Simple installation
+=> Cost-effective
+=> MongoDB stores unstructured data faster than MySQL since there is no requirement 
+   to define schema beforehand. 
+
+
+5. What is a Document in MongoDB?
+
+=> A Document in MongoDB is an ordered set of keys with associated values.
+   {"greeting" : "Hello world!"}
+
+=> Complex documents will contain multiple key/value pairs:
+   {"greeting" : "Hello world!", "views" : 3}
+
+
+6. What is a Collection in MongoDB?
+
+=> A collection in MongoDB is a group of documents. 
+=> collections have dynamic schemas. 
+
+ # For example, both of the following documents could be stored in a single collection:
+ {"greeting" : "Hello world!", "views": 3}
+ {"signoff": "Good bye"}
+
+
+7. What are Databases in MongoDB?
+
+=> MongoDB groups collections into databases. MongoDB can host several databases, each
+   grouping together collections. 
+
+  # Some reserved database names are as follows:
+    admin
+    local
+    config
+
+
+8. What is the Mongo Shell?
+
+=> It is a JavaScript shell that allows interaction with a MongoDB instance from the command 
+   line. With that one can perform administrative functions, inspecting an instance, or 
+   exploring MongoDB. 
+
+   To start the shell, run the mongo executable:
+
+   $ mongod
+   $ mongo
+   MongoDB shell version: 4.2.0
+   connecting to: test
+   >
+
+
+9. How to add data in MongoDB?
+
+=> by going mongoDB compass we go to particular database => collection => add data 
+   directly without intercative with command-line interface
+
+   or
+
+=> The basic method for adding data to MongoDB is “inserts”. To insert a single document, 
+  use the collection’s insertOne method:
+
+> db.books.insertOne({"title" : "Start With Why"})
+
+
+10. How do you Update a Document?
+
+=> Once a document is stored in the database, it can be changed using one of several update 
+   methods: updateOne, updateMany, and replaceOne. updateOne
+
+
+11. How do you Delete a Document?
+
+=> The CRUD API in MongoDB provides deleteOne and deleteMany for this purpose. Both of these 
+   methods take a filter document as their first parameter. The filter specifies a set of 
+   criteria to match against in removing documents.
+
+   For example:
+> db.books.deleteOne({"_id" : 3})
+
+
+12. How to perform queries in MongoDB?
+
+=>  The find method is used to perform queries in MongoDB. Querying returns a subset of 
+    documents in a collection, from no documents at all to the entire collection. Which
+    documents get returned is determined by the first argument to find, which is a 
+    document specifying the query criteria.
+
+Example:
+> db.users.find({"age" : 24})
