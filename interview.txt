@@ -34,7 +34,7 @@ BSON is used storage the data.
 
 => JSON VS BSON 
 
-=> JSON and Bson both stand for JavaScript Object Notation but there are some differences
+=> JSON and BSON both stand for JavaScript Object Notation but there are some differences
    between them 
 => mongoDB does not use json but it's actually use BSON 
 => BSON stand for binary JSON for storing and retrieve the data in database
